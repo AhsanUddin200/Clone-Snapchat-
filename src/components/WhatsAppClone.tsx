@@ -11,10 +11,17 @@ interface Friend {
   image: string;
 }
 
+// Define the Message type
+interface Message {
+  id: number;
+  text: string;
+  sender: string;
+}
+
 const SnapchatStyleApp = () => {
   const [activeScreen, setActiveScreen] = useState('chat');
   const [selectedFriend, setSelectedFriend] = useState<Friend | null>(null);
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState('');
   const [showReply, setShowReply] = useState(false);
   const videoRef = useRef(null);
@@ -31,7 +38,8 @@ const SnapchatStyleApp = () => {
     { id: 4, name: 'Robert Jonas', message: 'Typing...', time: '1h', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8tJeuSriHSY26Yn3cXaEyQmAU2f2_QCJ9jDFFaRcKbMj-EFKyR335b6bQq1K9RGvxxOE&usqp=CAU' },
   ];
 
-  const initialMessages = [
+  // Initial messages
+  const initialMessages: Message[] = [
     { id: 1, text: "Hey! How's it going?", sender: 'Friend' },
     { id: 2, text: "I'm on my way!", sender: 'Friend' },
   ];
