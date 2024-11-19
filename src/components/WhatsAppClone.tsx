@@ -13,7 +13,7 @@ interface Friend {
 
 const SnapchatStyleApp = () => {
   const [activeScreen, setActiveScreen] = useState('chat');
-  const [selectedFriend, setSelectedFriend] = useState(null);
+  const [selectedFriend, setSelectedFriend] = useState<Friend | null>(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [showReply, setShowReply] = useState(false);
